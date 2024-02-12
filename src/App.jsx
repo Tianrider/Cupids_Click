@@ -16,7 +16,7 @@ function App() {
           count is {count}
         </button>
       </div>
-      <h1 id='text'>{texts[count]}</h1>
+      <h1 className='underline'>{texts[count]}</h1>
     </>
   )
 }
