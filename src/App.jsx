@@ -5,21 +5,22 @@ import NoOne from "./pages/NoOne";
 import BadEnding from "./pages/BadEnding";
 import NoTwo from "./pages/NoTwo";
 import NoThree from "./pages/NoThree";
+import ErrorPage from "./pages/ErrorPage";
 
 const App = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/good-ending" element={<GoodEnding />} />
-                <Route path="/bad-ending" element={<BadEnding />} />
-                <Route path="/no-one" element={<NoOne />} />
-                <Route path="/no-two" element={<NoTwo />} />
-                <Route path="/no-three" element={<NoThree />} />
-                <Route path="*" element={<h1>404 Not Found</h1>} />
-            </Routes>
-        </BrowserRouter>
-    );
+   return (
+      <BrowserRouter>
+         <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/good-ending" element={<GoodEnding />} />
+            <Route path="/bad-ending" element={<BadEnding />} />
+            <Route path="/no-one" element={<NoOne />} />
+            <Route path="/no-two" element={<NoTwo />} />
+            <Route path="/no-three" element={<NoThree />} />
+            <Route path="*" element={<ErrorPage />} />
+         </Routes>
+      </BrowserRouter>
+   );
 };
 
 export default App;
