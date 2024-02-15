@@ -62,13 +62,13 @@ function MainPage() {
                <source src={liveBackground} type="video/mp4" />
             </video>
             <div
-               className="relative flex h-screen w-1/2 justify-center align-center items-center flex-col z-1"
+               className="relative flex h-screen w-dvw max-md:text-center md:w-1/2 justify-center align-center items-center flex-col z-1"
                style={{
                   background:
                      "linear-gradient(90deg, rgba(230,46,142,0.5) 10%, rgba(230,46,142,0.5) 50%, rgba(230,46,142,0.4) 80%, rgba(230,46,142,0.3) 90%, rgba(230,46,142,0) 100%)",
                }}
             >
-               <p className="text-white p-20 text-xl font-bold font-serif libre-baskerville-bold">
+               <p className="text-white p-20 max-md:py-8 max-md:text-lg text-xl font-bold font-serif libre-baskerville-bold">
                   Star shining bright in the night,
                   <br />
                   I'm rewriting my story, holding onto hope tight,
@@ -86,13 +86,14 @@ function MainPage() {
                   <br />
                   I'll pose a question, sincere and true,
                   <br />
+                  <br />
                   <span id="libre-baskerville-italic">
                      Will you be my Valentine?
                   </span>
                </p>
                <button
                   type="button"
-                  className="text-white border-4 border-white font-bold rounded-full text-2xl px-20 py-4 text-center me-2 mb-2 libre-baskerville-bold transition-all duration-500 hover:bg-pink-400 hover:border-pink-500"
+                  className="text-white border-4 border-white font-bold rounded-full text-2xl px-20 py-4 text-center me-2 mb-2 libre-baskerville-bold transition-all duration-500 hover:bg-pink-400 hover:border-pink-500 shadow-lg hover:shadow-xl hover:scale-110"
                >
                   Click Me
                </button>
