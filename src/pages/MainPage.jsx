@@ -85,12 +85,13 @@ function MainPage() {
                      Will you be my Valentine?
                   </span>
                </p>
-               <button
+               <a
                   type="button"
                   className="text-white border-4 border-white font-bold rounded-full text-2xl px-20 py-4 text-center me-2 mb-2 libre-baskerville-bold transition-all duration-500 hover:bg-pink-400 hover:border-pink-500 shadow-lg hover:shadow-xl hover:scale-110"
+                  href="/no-one"
                >
                   Click Me
-               </button>
+               </a>
             </div>
          </>
       </>
