@@ -5,6 +5,7 @@ import NoOne from "./pages/NoOne";
 import BadEnding from "./pages/BadEnding";
 import NoTwo from "./pages/NoTwo";
 import NoThree from "./pages/NoThree";
+import ErrorPage from "./pages/ErrorPage";
 
 const App = () => {
     return (
@@ -16,7 +17,7 @@ const App = () => {
                 <Route path="/no-one" element={<NoOne />} />
                 <Route path="/no-two" element={<NoTwo />} />
                 <Route path="/no-three" element={<NoThree />} />
-                <Route path="*" element={<h1>404 Not Found</h1>} />
+                <Route path="*" element={<ErrorPage />} />
             </Routes>
         </BrowserRouter>
     );
