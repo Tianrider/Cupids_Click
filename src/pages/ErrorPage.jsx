@@ -1,5 +1,4 @@
 import sadFace from "../assets/sad-face.png";
-import TextBox from "../components/TextBox";
 
 function MainPage() {
   return (
