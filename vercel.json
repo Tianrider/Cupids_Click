@@ -1,0 +1,7 @@
+{
+   "installCommand": "npm install --legacy-peer-deps",
+   "rewrites": [
+      { "source": "/api/(.*)", "destination": "/api/proxy.js" },
+      { "source": "/(.*)", "destination": "/" }
+   ]
+}
