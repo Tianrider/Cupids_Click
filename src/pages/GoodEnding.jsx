@@ -1,4 +1,3 @@
-import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import Couple from "../assets/couple1.png";
 import sakuraBg from "../assets/sakura-tree-hill.png"
