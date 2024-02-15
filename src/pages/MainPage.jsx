@@ -36,7 +36,7 @@ function MainPage() {
                     <ChoicesBox
                         textYes="Mauu"
                         textNo="IUW NAJIS"
-                        hrefNo="/noOne"
+                        hrefNo="/no-one"
                     />
                 )}
             </div>
