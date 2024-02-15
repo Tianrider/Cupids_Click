@@ -25,3 +25,26 @@
    font-style: italic;
    text-shadow: 3px 3px 3px rgb(131, 24, 67);
 }
+
+.gradient-background {
+   background: linear-gradient(
+      90deg,
+      rgba(230, 46, 142, 0.5) 50%,
+      rgba(230, 46, 142, 0.4) 80%,
+      rgba(230, 46, 142, 0.3) 90%,
+      rgba(230, 46, 142, 0) 100%
+   );
+}
+
+@media (max-width: 640px) {
+   .gradient-background {
+      background: linear-gradient(
+         90deg,
+         rgba(230, 46, 142, 0.4) 40%,
+         rgba(230, 46, 142, 0.3) 70%,
+         rgba(230, 46, 142, 0.2) 80%,
+         rgba(230, 46, 142, 0.1) 90%,
+         rgba(230, 46, 142, 0) 100%
+      );
+   }
+}

@@ -15,7 +15,12 @@
     "react-audio-player": "^0.17.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
+<<<<<<< HEAD
     "react-type-animation": "^3.2.0"
+=======
+    "react-sound": "^1.2.0",
+    "use-sound": "^4.0.1"
+>>>>>>> 66ce57ca1b567cd4dd37c834e1750a1ecfc846ad
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

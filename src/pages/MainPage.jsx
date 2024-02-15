@@ -11,7 +11,7 @@ function IntroPage() {
 
    return (
       <motion.div
-         className="fixed top-0 left-0 h-screen w-screen bg-pink-300 flex flex-col gap-5 items-center justify-center"
+         className="fixed top-0 left-0 h-screen w-screen bg-pink-300 flex flex-col gap-10 md:gap-5 items-center justify-center"
          initial={{ opacity: 1, scale: 1 }}
          animate={{ opacity: 0 }}
          exit={{ opacity: 0 }}
@@ -20,7 +20,7 @@ function IntroPage() {
          onAnimationComplete={handleAnimationComplete} //
       >
          <motion.h1
-            className="text-6xl text-white twinkle-star-regular"
+            className="text-5xl text-white twinkle-star-regular md:text-6xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -28,7 +28,7 @@ function IntroPage() {
             Hi Sayang 😘
          </motion.h1>
          <motion.h1
-            className="text-6xl text-white twinkle-star-regular"
+            className="text-3xl md:text-6xl text-white twinkle-star-regular"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
@@ -61,13 +61,7 @@ function MainPage() {
             >
                <source src={liveBackground} type="video/mp4" />
             </video>
-            <div
-               className="relative flex h-screen w-dvw max-md:text-center md:w-1/2 justify-center align-center items-center flex-col z-1"
-               style={{
-                  background:
-                     "linear-gradient(90deg, rgba(230,46,142,0.5) 10%, rgba(230,46,142,0.5) 50%, rgba(230,46,142,0.4) 80%, rgba(230,46,142,0.3) 90%, rgba(230,46,142,0) 100%)",
-               }}
-            >
+            <div className="gradient-background relative flex h-screen w-dvw max-md:text-center md:w-1/2 justify-center align-center items-center flex-col">
                <p className="text-white p-20 max-md:py-8 max-md:text-lg text-xl font-bold font-serif libre-baskerville-bold">
                   Star shining bright in the night,
                   <br />
@@ -98,9 +92,9 @@ function MainPage() {
                   Click Me
                </button>
             </div>
-            </>
-        </>
-    );
+         </>
+      </>
+   );
 }
 
 export default MainPage;
