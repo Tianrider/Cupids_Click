@@ -20,7 +20,7 @@ const DialogBox = (props) => {
                     </div>
                     <div
                         className="bg-pink-500/50 hover:bg-pink-600/50 active:bg-pink-700/50 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer"
-                        onClick={props.handleIncrement}
+                        onClick={props.handleDecrement}
                     >
                         TEMP (BACK TEXT)
                     </div>
