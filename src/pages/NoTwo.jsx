@@ -36,8 +36,6 @@ function NoTwo() {
         }
     };
 
-
-
     return (
         <>
             <img
@@ -51,7 +49,7 @@ function NoTwo() {
                 className="h-[90vh] md:h-[94vh] absolute bottom-0 z-[-1]"
             />
 
-            <div>
+            <div> // fix audio here
                 <ReactAudioPlayer
                     src={song}
                     autoPlay
