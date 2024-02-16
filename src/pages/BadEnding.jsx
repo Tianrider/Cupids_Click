@@ -11,28 +11,38 @@ const BadEnding = () => {
    const [showOutro, setShowOutro] = useState(false);
    const [showIntro, setShowIntro] = useState(true);
    const apiKey = import.meta.env.VITE_API_KEY;
+   const rapidAPIKey = import.meta.env.VITE_RAPID_API_KEY;
 
    const texts = [
       "That's fine,",
       "But remember, there's no escaping from love's grasp",
       "I've made up my mind",
-      `${apiData.city} (${apiData.lat}, ${apiData.lon}) huh? I know where you live💕`,
+      `${apiData.city} (${apiData.latitude}, ${apiData.longitude}) huh? I know where you live💕`,
       `I'm on my way to your house this very moment 🤗❤️🔪`,
       "By the way, this is your IP address if you're curious",
    ];
 
    const getIpAddress = async () => {
-      console.log("fetching ip address");
-      const response = await fetch("http://ip-api.com/json/", {
+      const url =
+         "https://find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com/iplocation?apikey=" +
+         apiKey;
+      const options = {
          method: "GET",
          headers: {
-            "X-RapidAPI-Key": apiKey,
-            "X-RapidAPI-Host": "telize-v1.p.rapidapi.com",
+            "X-RapidAPI-Key": rapidAPIKey,
+            "X-RapidAPI-Host":
+               "find-any-ip-address-or-domain-location-world-wide.p.rapidapi.com",
          },
-      });
-      const data = await response.json();
-      setApiData(data);
-      console.log(data);
+      };
+
+      try {
+         const response = await fetch(url, options);
+         const result = await response.json();
+         setApiData(result);
+         console.log(result);
+      } catch (error) {
+         console.error(error);
+      }
    };
 
    useEffect(() => {
@@ -41,7 +51,7 @@ const BadEnding = () => {
 
    const handleIncrement = () => {
       if (count >= texts.length - 2) {
-         setIpAddress(apiData.query);
+         setIpAddress(apiData.ip);
       }
       if (count >= texts.length - 1) {
          setShowOutro(true);
