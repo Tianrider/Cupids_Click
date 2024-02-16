@@ -15,6 +15,7 @@ function NoTwo() {
    const [count, setCount] = useState(0);
    const [choices, setChoices] = useState(false);
 
+
    const texts = [
       "Guess what?",
       "You got ME!",
@@ -72,7 +73,6 @@ function NoTwo() {
                handleIncrement={handleIncrement}
                handleDecrement={handleDecrement}
             />
-
             {choices && (
                <ChoicesBox
                   textYes="eh ya Allah kasian, iyaa dehh"
