@@ -21,9 +21,11 @@ const BadEnding = () => {
    ];
 
    const getIpAddress = async () => {
+      console.log("fetching ip address");
       const response = await fetch("http://ip-api.com/json/");
       const data = await response.json();
       setApiData(data);
+      console.log(data);
    };
 
    useEffect(() => {
