@@ -10,6 +10,7 @@ const BadEnding = () => {
    const [apiData, setApiData] = useState({});
    const [showOutro, setShowOutro] = useState(false);
    const [showIntro, setShowIntro] = useState(true);
+   const apiKey = import.meta.env.VITE_API_KEY;
 
    const texts = [
       "That's fine,",
@@ -22,7 +23,13 @@ const BadEnding = () => {
 
    const getIpAddress = async () => {
       console.log("fetching ip address");
-      const response = await fetch("http://ip-api.com/json/");
+      const response = await fetch("http://ip-api.com/json/", {
+         method: "GET",
+         headers: {
+            "X-RapidAPI-Key": apiKey,
+            "X-RapidAPI-Host": "telize-v1.p.rapidapi.com",
+         },
+      });
       const data = await response.json();
       setApiData(data);
       console.log(data);
