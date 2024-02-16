@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import liveBackground from "../assets/main-page-background.mp4";
 import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 function IntroPage() {
    const [zIndex, setZIndex] = useState(10);
@@ -15,26 +16,26 @@ function IntroPage() {
          initial={{ opacity: 1, scale: 1 }}
          animate={{ opacity: 0 }}
          exit={{ opacity: 0 }}
-         transition={{ duration: 3, delay: 3 }}
+         transition={{ duration: 5, delay: 5 }}
          style={{ zIndex: zIndex }}
-         onAnimationComplete={handleAnimationComplete} //
+         onAnimationComplete={handleAnimationComplete}
       >
-         <motion.h1
+         <TypeAnimation
+            sequence={["", 400, "Hi Sayang,"]}
+            wrapper="span"
+            speed={10}
+            style={{ fontWeight: "bold" }}
+            cursor={false}
             className="text-5xl text-white twinkle-star-regular md:text-6xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-         >
-            Hi Sayang 😘
-         </motion.h1>
-         <motion.h1
-            className="text-3xl md:text-6xl text-white twinkle-star-regular"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-         >
-            💕Website ini Untuk Kamu💕
-         </motion.h1>
+         />
+         <TypeAnimation
+            sequence={["", 2000, "💕Website ini Untuk Kamu💕"]}
+            wrapper="span"
+            speed={15}
+            style={{ fontWeight: "bold" }}
+            cursor={false}
+            className="text-[6vw] md:text-5xl text-white twinkle-star-regular"
+         />
       </motion.div>
    );
 }
@@ -57,7 +58,7 @@ function MainPage() {
                loop
                muted
                className="h-screen w-screen object-cover -z-1 absolute"
-               ref={videoRef} // Attach the ref to the video element
+               ref={videoRef}
             >
                <source src={liveBackground} type="video/mp4" />
             </video>
@@ -87,7 +88,7 @@ function MainPage() {
                </p>
                <a
                   type="button"
-                  className="text-white border-4 border-white font-bold rounded-full text-2xl px-20 py-4 text-center me-2 mb-2 libre-baskerville-bold transition-all duration-500 hover:bg-pink-400 hover:border-pink-500 shadow-lg hover:shadow-xl hover:scale-110"
+                  className="text-white border-4 border-white font-bold bg-pink-300/50 rounded-full text-2xl px-20 py-4 text-center me-2 mb-2 libre-baskerville-bold transition-all duration-500 hover:bg-pink-400 hover:border-pink-500 shadow-lg hover:shadow-xl hover:scale-110 "
                   href="/no-one"
                >
                   Click Me
