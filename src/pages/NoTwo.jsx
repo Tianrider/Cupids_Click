@@ -11,10 +11,12 @@ import chara from "../assets/chara-no-two.png";
 import charaB from "../assets/chara-no-two-b.png";
 import memes from "../assets/memes.png";
 import { motion } from "framer-motion";
+import LoadingScreen from "../components/LoadingScreen";
 
 function NoTwo() {
    const [count, setCount] = useState(0);
    const [choices, setChoices] = useState(false);
+   const [isLoading, setIsLoading] = useState(true);
 
    const texts = [
       "Guess what?",
@@ -47,10 +49,13 @@ function NoTwo() {
          {/* fix audio here */}
          <ReactAudioPlayer src={song} autoPlay loop />
 
+         {isLoading && <LoadingScreen />}
+
          <img
             src={background}
             alt="background"
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
+            onLoad={() => setIsLoading(false)}
          />
          <motion.img
             src={count >= 3 ? charaB : chara}

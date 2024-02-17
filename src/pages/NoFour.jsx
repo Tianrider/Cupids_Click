@@ -4,12 +4,14 @@ import DialogBox from "../components/DialogBox";
 import background from "../assets/background-no-four.png";
 import chara from "../assets/chara-no-three.png";
 import { motion } from "framer-motion";
+import LoadingScreen from "../components/LoadingScreen";
 
 function NoTwo() {
    const [count, setCount] = useState(0);
    const [choices, setChoices] = useState(false);
    const [noClicked, setNoClicked] = useState(0);
    const animationKey = `${count}-${noClicked}`;
+   const [isLoading, setIsLoading] = useState(true);
 
    const texts = [
       "Panik Ya? hehe 😘",
@@ -63,10 +65,12 @@ function NoTwo() {
 
    return (
       <>
+         {isLoading && <LoadingScreen />}
          <img
             src={background}
             alt="background"
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
+            onLoad={() => setIsLoading(false)}
          />
          <motion.img
             src={chara}

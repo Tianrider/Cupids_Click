@@ -7,6 +7,7 @@ import chara1ImageB from "../assets/chara-no-one-b.png";
 import chara2Image from "../assets/chara-no-three.png";
 import tutorialVideo from "../assets/tutorial-video.gif";
 import { motion } from "framer-motion";
+import LoadingScreen from "../components/LoadingScreen";
 
 const NoOne = () => {
    const [count, setCount] = useState(0);
@@ -14,6 +15,7 @@ const NoOne = () => {
    const [showTutorialVideo, setShowTutorialVideo] = useState(false);
    const [chara2Visible, setChara2Visible] = useState(false);
    const [chara1Visible, setChara1Visible] = useState(true);
+   const [isLoading, setIsLoading] = useState(true);
 
    const texts1 = [
       "Hi :)",
@@ -70,6 +72,7 @@ const NoOne = () => {
 
    return (
       <>
+         {isLoading && <LoadingScreen />}
          {showTutorialVideo ? (
             <div className="w-auto md:h-1/2 absolute z-0 left-1/2 top-[60dvw] md:top-[40dvh] transform -translate-x-1/2 -translate-y-1/2">
                {count === 4 && (
@@ -117,6 +120,7 @@ const NoOne = () => {
             src={background}
             alt="background"
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
+            onLoad={() => setIsLoading(false)}
          />
          {chara1Visible && (
             <motion.img

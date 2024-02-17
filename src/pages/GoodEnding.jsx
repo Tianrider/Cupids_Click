@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 function IntroPage() {
    const [zIndex, setZIndex] = useState(10);
+   const [isLoading, setIsLoading] = useState(true);
 
    const handleAnimationComplete = () => {
       setZIndex(0);

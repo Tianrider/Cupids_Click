@@ -7,11 +7,13 @@ import background from "../assets/background-no-three.png";
 import chara from "../assets/chara-no-three.png";
 import sadFace from "../assets/sad-face.png";
 import { motion } from "framer-motion";
+import LoadingScreen from "../components/LoadingScreen";
 
 const NoThree = () => {
    const [count, setCount] = useState(0);
    const [choices, setChoices] = useState(false);
    const [showBlueScreen, setShowBlueScreen] = useState(false);
+   const [isLoading, setIsLoading] = useState(true);
 
    const texts = [
       "Cih",
@@ -64,11 +66,13 @@ const NoThree = () => {
                </a>
             </div>
          )}
+         {isLoading && <LoadingScreen />}
 
          <img
             src={background}
             alt="background"
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
+            onLoad={() => setIsLoading(false)}
          />
 
          <motion.img
