@@ -3,6 +3,8 @@
 import background from "../assets/bad-ending-background.png";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import doorKnock from "../assets/door_knock.mp3";
+import ReactAudioPlayer from "react-audio-player";
 
 const BadEnding = () => {
    const [count, setCount] = useState(0);
@@ -137,6 +139,7 @@ const BadEnding = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, delay: 3.5 }}
                >
+                  <ReactAudioPlayer src={doorKnock} autoPlay volume={1} />
                   don't forget to lock your window sayang 😘
                </motion.h1>
             </motion.div>
