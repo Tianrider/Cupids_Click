@@ -20,7 +20,7 @@ const NoOne = () => {
    const texts1 = [
       "Hi :)",
       "Dengerin yaa",
-      "Oh my honey",
+      "My honey....",
       "I'll memorize every detail of your happiness, ",
       "so I can be the only one who knows exactly how to bring a smile to your face, every single time.",
       "Take a leap of faith.",
@@ -28,7 +28,7 @@ const NoOne = () => {
    ];
 
    const texts2 = [
-      "Etss, mau mencet no ya?",
+      "Etss, kepencet no ya?",
       "Sebelum itu, gw ada pertanyaan",
       "Lo mau 10 juta ga?",
       "NAH!!",
@@ -79,7 +79,7 @@ const NoOne = () => {
                   <img
                      src={tutorialVideo}
                      alt="tutorial video"
-                     className="max-w-[60vw] max-h-[60vw] md:mb-0 md:max-w-80 md:max-h-80 w-auto h-auto rounded-2xl border-4 border-pink-600"
+                     className="max-w-[60vw] max-h-[60vw] md:mb-0 md:max-w-90 md:max-h-[24rem] w-auto rounded-2xl border-4 border-pink-600"
                      style={{
                         boxShadow:
                            "box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;",

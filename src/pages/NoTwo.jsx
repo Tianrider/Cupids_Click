@@ -47,7 +47,7 @@ function NoTwo() {
    return (
       <>
          {/* fix audio here */}
-         <ReactAudioPlayer src={song} autoPlay loop />
+         <ReactAudioPlayer src={song} autoPlay loop volume={0.8} />
 
          {isLoading && <LoadingScreen />}
 

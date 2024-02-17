@@ -9,9 +9,11 @@ const TextBox = (props) => {
           shadow-2xl
         "
       >
-         <h1 className="text-xl font-bold">Christoff Vinago</h1>
+         <h1 className="text-xl font-bold quicksand">Christoff Vinago</h1>
          <hr className="-mx-4 mt-2 mb-1" />
-         <p className="font-bold text-xl">{props.texts[props.count]}</p>
+         <p className="font-bold text-xl quicksand">
+            {props.texts[props.count]}
+         </p>
       </div>
    );
 };

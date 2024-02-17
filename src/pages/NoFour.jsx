@@ -23,15 +23,15 @@ function NoTwo() {
 
    const noTexts = [
       "BISA STOP GA SI?",
-      "EHH WAIT",
-      "SERIUS NIH?",
-      "PLIS??",
-      "PLISS😭😭",
+      "Engga Dulu",
+      "GAK 😡!!",
+      "Download Virus.exe",
+      "Gamau😭😭",
    ];
 
    const yesTexts = [
       "ishh yauda deh iya...",
-      "Salah pencet woi!",
+      "Pencet yang ini Woi!",
       "YANG INI WOI!",
       "FREE MONEY HERE!",
       "CLICK ME!",
@@ -104,7 +104,7 @@ function NoTwo() {
                         <h1 className="text-lg font-bold">Jawabanmu?</h1>
                         <hr className="-mx-4 mt-2 mb-2" />
                         <div
-                           className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer"
+                           className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer text-center font-bold"
                            style={{
                               scale: `${noClicked + 1}`,
                            }}
@@ -112,7 +112,7 @@ function NoTwo() {
                            <a href="/good-ending">{yesTexts[noClicked]}</a>
                         </div>
                         <div
-                           className={`mt-1 bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 cursor-pointer`}
+                           className={`mt-1 bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 cursor-pointer text-center`}
                            onClick={handleNoClicked}
                            style={{
                               transform: `translateY(${noClicked * 40}px)`,

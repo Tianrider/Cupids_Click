@@ -108,7 +108,9 @@ const NoThree = () => {
                         <hr className="-mx-4 mt-2 mb-2" />
                         <div className="bg-pink-500 hover:bg-pink-600/50 active:bg-pink-700/50 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer font-bold">
                            <a href="/good-ending">
-                              {"ihh kamu humoris banget, iya iyaa aku sukaa <3"}
+                              {
+                                 "ihh kamu humoris banget, iya iyaa aku sukaa >_<"
+                              }
                            </a>
                         </div>
                         <div

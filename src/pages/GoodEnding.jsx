@@ -1,12 +1,12 @@
 import { TypeAnimation } from "react-type-animation";
 import Couple from "../assets/couple1.png";
 import sakuraBg from "../assets/sakura-tree-hill.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import soundTrack from "../assets/mainPage-soundtrack.mp3";
 
 function IntroPage() {
    const [zIndex, setZIndex] = useState(10);
-   const [isLoading, setIsLoading] = useState(true);
 
    const handleAnimationComplete = () => {
       setZIndex(0);
@@ -35,8 +35,12 @@ function IntroPage() {
 }
 
 function GoodEnding() {
+   const audioRef = useRef(null);
+
    return (
       <>
+         <audio ref={audioRef} src={soundTrack} loop autoPlay />
+
          <IntroPage />
          <div
             className="h-[100vh] w-screen flex flex-wrap flex-1 justify-center items-center overflow-x-hidden"
@@ -67,7 +71,7 @@ function GoodEnding() {
                      />
                   </div>
                </div>
-               <div className="w-1/2 mr-4 h-auto mb-10 md:mb-0 bg-pink-200 bg-opacity-80 bg-flex border-4 shadow-xl border-pink-700 items-center rounded-2xl">
+               <div className="w-1/2 mr-4 md:mr-16 h-auto mb-10 md:mb-0 bg-pink-200 bg-opacity-80 bg-flex border-4 shadow-xl border-pink-700 items-center rounded-2xl">
                   <div className="p-3">
                      <p className="font-serif italic text-center bg-gradient-to-r">
                         <TypeAnimation
@@ -77,10 +81,10 @@ function GoodEnding() {
                            style={{ fontSize: "2rem", color: "indigo" }}
                         />
                      </p>
-                     <h1 className="font-Cormorant font-bold pt-5 text-xl">
+                     <h1 className="font-Cormorant font-bold pt-5 text-2xl text-pink-800">
                         Dear Dayu Aventail,{" "}
                      </h1>
-                     <p className="font-Cormorant font-bold">
+                     <p className="font-Cormorant font-bold text-pink-800">
                         YOU FILL MY HEART WITH JOY 💖
                         <br />
                         We&apos;re now officially partners in Valentine&apos;s
@@ -99,13 +103,13 @@ function GoodEnding() {
                         end up with you 💝
                         <br /> <br />
                      </p>
-                     <p className="italic font-Cormorant font-bold">
+                     <p className="italic font-Cormorant font-bold text-pink-800">
                         “Love&apos;s script ends with us together, a perfect
                         ending to a beautiful beginning”
                         <br />
                         <br />
                      </p>
-                     <p className="font-Cormorant font-bold">
+                     <p className="font-Cormorant font-bold text-pink-800">
                         Sincerely yours, Vinago💐
                      </p>
                      <div className="pt-4 flex items-end justify-end">
