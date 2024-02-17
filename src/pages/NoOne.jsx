@@ -6,6 +6,7 @@ import chara1Image from "../assets/chara-no-one.png";
 import chara1ImageB from "../assets/chara-no-one-b.png";
 import chara2Image from "../assets/chara-no-three.png";
 import tutorialVideo from "../assets/tutorial-video.gif";
+import { motion } from "framer-motion";
 
 const NoOne = () => {
    const [count, setCount] = useState(0);
@@ -118,14 +119,17 @@ const NoOne = () => {
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
          />
          {chara1Visible && (
-            <img
+            <motion.img
                src={count >= 2 ? chara1ImageB : chara1Image}
                alt="chara"
                className={
-                  count >= 2
+                  count >= 2 && !chara2Visible
                      ? "h-[50vh] md:h-[90vh] absolute bottom-[20vh] md:bottom-0 md:right-[20vw] z-[-1]"
                      : "h-[85vh] md:h-[94vh] absolute bottom-0 md:right-[57vw] z-[-1]"
                }
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1, delay: 1 }}
             />
          )}
 
@@ -137,7 +141,12 @@ const NoOne = () => {
             />
          )}
 
-         <div className="h-dvh w-screen items-center justify-start gap-8 flex flex-col-reverse">
+         <motion.div
+            className="h-dvh w-screen items-center justify-start gap-8 flex flex-col-reverse"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 3 }}
+         >
             <TextBox
                texts={showTutorialVideo ? texts2 : texts1}
                count={count}
@@ -174,7 +183,7 @@ const NoOne = () => {
                   </div>
                </div>
             )}
-         </div>
+         </motion.div>
       </>
    );
 };

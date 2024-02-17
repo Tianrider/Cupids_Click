@@ -10,6 +10,7 @@ import background from "../assets/background-no-two.png";
 import chara from "../assets/chara-no-two.png";
 import charaB from "../assets/chara-no-two-b.png";
 import memes from "../assets/memes.png";
+import { motion } from "framer-motion";
 
 function NoTwo() {
    const [count, setCount] = useState(0);
@@ -51,10 +52,13 @@ function NoTwo() {
             alt="background"
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
          />
-         <img
+         <motion.img
             src={count >= 3 ? charaB : chara}
             alt="chara"
-            className="h-[60vh] md:h-[94vh] md:right-[75vh] absolute bottom-44 md:bottom-0 z-[-1]"
+            className="h-[60vh] md:h-[94vh] md:right-[75vh] absolute bottom-44 md:bottom-16 z-[-1]"
+            key={count}
+            animate={{ transform: "translateY(3vw)" }}
+            transition={{ duration: 0.2 }}
          />
 
          {count == 1 && !choices && (
