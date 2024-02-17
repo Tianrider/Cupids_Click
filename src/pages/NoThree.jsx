@@ -6,6 +6,7 @@ import DialogBox from "../components/DialogBox";
 import background from "../assets/background-no-three.png";
 import chara from "../assets/chara-no-three.png";
 import sadFace from "../assets/sad-face.png";
+import { motion } from "framer-motion";
 
 const NoThree = () => {
    const [count, setCount] = useState(0);
@@ -69,11 +70,16 @@ const NoThree = () => {
             alt="background"
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
          />
-         <img
+
+         <motion.img
             src={chara}
             alt="chara"
-            className="h-[90vh] md:h-[94vh] absolute bottom-0 md:right-[57vw] z-[-1]"
+            className="h-[80vh] md:h-[94vh] absolute bottom-[3vw] md:right-[57vw] z-[-1]"
+            key={count}
+            animate={{ transform: "translateY(1vw)" }}
+            transition={{ duration: 0.2 }}
          />
+
          <div className="h-dvh w-screen items-center justify-start gap-8 flex flex-col-reverse">
             <TextBox texts={texts} count={count} />
 

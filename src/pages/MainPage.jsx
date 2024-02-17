@@ -2,6 +2,8 @@ import { useRef, useEffect, useState } from "react";
 import liveBackground from "../assets/main-page-background.mp4";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import soundTrack from "../assets/mainPage-soundtrack.mp3";
+import { MdMusicOff, MdMusicNote } from "react-icons/md";
 
 function IntroPage() {
    const [zIndex, setZIndex] = useState(10);
@@ -42,6 +44,17 @@ function IntroPage() {
 
 function MainPage() {
    const videoRef = useRef(null);
+   const audioRef = useRef(null);
+   const [audioPlaying, setAudioPlaying] = useState(false);
+
+   const handlePlayAudio = () => {
+      if (audioPlaying) {
+         audioRef.current.pause();
+      } else {
+         audioRef.current.play();
+      }
+      setAudioPlaying(!audioPlaying);
+   };
 
    useEffect(() => {
       if (videoRef.current) {
@@ -52,6 +65,21 @@ function MainPage() {
    return (
       <>
          <IntroPage />
+         <audio ref={audioRef} src={soundTrack} loop />
+
+         <div
+            onClick={handlePlayAudio}
+            className="w-10 h-10 absolute text-pink-600 z-10 bottom-4 right-4 md:bottom-[4dvh] md:right-[7dvh] cursor-pointer md:hover:scale-110 transition-all duration-500"
+            style={{
+               filter: "drop-shadow(0 0 20px #ff00ff)",
+            }}
+         >
+            {audioPlaying ? (
+               <MdMusicNote size={40} />
+            ) : (
+               <MdMusicOff size={40} />
+            )}
+         </div>
          <>
             <video
                autoPlay
