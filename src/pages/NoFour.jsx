@@ -3,25 +3,38 @@ import TextBox from "../components/TextBox";
 import DialogBox from "../components/DialogBox";
 import background from "../assets/background-no-four.png";
 import chara from "../assets/chara-no-three.png";
+import { motion } from "framer-motion";
+import LoadingScreen from "../components/LoadingScreen";
 
 function NoTwo() {
    const [count, setCount] = useState(0);
    const [choices, setChoices] = useState(false);
    const [noClicked, setNoClicked] = useState(0);
+   const animationKey = `${count}-${noClicked}`;
+   const [isLoading, setIsLoading] = useState(true);
 
    const texts = [
       "Panik Ya? hehe 😘",
+      "Itu gambaran hatiku kalo lo ga ada kamu... T_T",
       "oke kita coba TERAKHIR yaaa",
       "ehem",
-      "Will you let me shadow you in your brightest days and darkest nights, ensuring you always have light and warmth from my unyielding devotion?",
+      "Will you let me shadow you in your darkest nights, ensuring you always have light and warmth from my unyielding devotion?",
    ];
 
    const noTexts = [
       "BISA STOP GA SI?",
-      "EHH WAIT",
-      "SERIUS NIH?",
-      "PLIS??",
-      "PLISS😭😭",
+      "Engga Dulu",
+      "GAK 😡!!",
+      "Download Virus.exe",
+      "Gamau😭😭",
+   ];
+
+   const yesTexts = [
+      "ishh yauda deh iya...",
+      "Pencet yang ini Woi!",
+      "YANG INI WOI!",
+      "FREE MONEY HERE!",
+      "CLICK ME!",
    ];
 
    const handleIncrement = () => {
@@ -52,15 +65,20 @@ function NoTwo() {
 
    return (
       <>
+         {isLoading && <LoadingScreen />}
          <img
             src={background}
             alt="background"
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
+            onLoad={() => setIsLoading(false)}
          />
-         <img
+         <motion.img
             src={chara}
             alt="chara"
-            className="h-[90vh] md:h-[94vh] absolute bottom-0 md:right-[57vw] z-[-1]"
+            className="h-[80vh] md:h-[94vh] absolute bottom-[1vw] md:right-[57vw] z-[-1]"
+            key={animationKey}
+            animate={{ transform: "translateY(1vw)" }}
+            transition={{ duration: 0.2 }}
          />
 
          {/* fix audio here */}
@@ -86,15 +104,15 @@ function NoTwo() {
                         <h1 className="text-lg font-bold">Jawabanmu?</h1>
                         <hr className="-mx-4 mt-2 mb-2" />
                         <div
-                           className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer"
+                           className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer text-center font-bold"
                            style={{
                               scale: `${noClicked + 1}`,
                            }}
                         >
-                           <a href="/good-ending">ishh yauda deh iya...</a>
+                           <a href="/good-ending">{yesTexts[noClicked]}</a>
                         </div>
                         <div
-                           className={`mt-1 bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 cursor-pointer`}
+                           className={`mt-1 bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 cursor-pointer text-center`}
                            onClick={handleNoClicked}
                            style={{
                               transform: `translateY(${noClicked * 40}px)`,

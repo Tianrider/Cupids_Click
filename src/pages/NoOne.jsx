@@ -6,6 +6,8 @@ import chara1Image from "../assets/chara-no-one.png";
 import chara1ImageB from "../assets/chara-no-one-b.png";
 import chara2Image from "../assets/chara-no-three.png";
 import tutorialVideo from "../assets/tutorial-video.gif";
+import { motion } from "framer-motion";
+import LoadingScreen from "../components/LoadingScreen";
 
 const NoOne = () => {
    const [count, setCount] = useState(0);
@@ -13,11 +15,12 @@ const NoOne = () => {
    const [showTutorialVideo, setShowTutorialVideo] = useState(false);
    const [chara2Visible, setChara2Visible] = useState(false);
    const [chara1Visible, setChara1Visible] = useState(true);
+   const [isLoading, setIsLoading] = useState(true);
 
    const texts1 = [
       "Hi :)",
       "Dengerin yaa",
-      "Oh my honey",
+      "My honey....",
       "I'll memorize every detail of your happiness, ",
       "so I can be the only one who knows exactly how to bring a smile to your face, every single time.",
       "Take a leap of faith.",
@@ -25,7 +28,7 @@ const NoOne = () => {
    ];
 
    const texts2 = [
-      "Etss, mau mencet no ya?",
+      "Etss, kepencet no ya?",
       "Sebelum itu, gw ada pertanyaan",
       "Lo mau 10 juta ga?",
       "NAH!!",
@@ -69,13 +72,14 @@ const NoOne = () => {
 
    return (
       <>
+         {isLoading && <LoadingScreen />}
          {showTutorialVideo ? (
             <div className="w-auto md:h-1/2 absolute z-0 left-1/2 top-[60dvw] md:top-[40dvh] transform -translate-x-1/2 -translate-y-1/2">
                {count === 4 && (
                   <img
                      src={tutorialVideo}
                      alt="tutorial video"
-                     className="max-w-[60vw] max-h-[60vw] md:mb-0 md:max-w-80 md:max-h-80 w-auto h-auto rounded-2xl border-4 border-pink-600"
+                     className="max-w-[60vw] max-h-[60vw] md:mb-0 md:max-w-90 md:max-h-[24rem] w-auto rounded-2xl border-4 border-pink-600"
                      style={{
                         boxShadow:
                            "box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;",
@@ -116,28 +120,40 @@ const NoOne = () => {
             src={background}
             alt="background"
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
+            onLoad={() => setIsLoading(false)}
          />
          {chara1Visible && (
-            <img
+            <motion.img
                src={count >= 2 ? chara1ImageB : chara1Image}
                alt="chara"
                className={
-                  count >= 2
+                  count >= 2 && !chara2Visible
                      ? "h-[50vh] md:h-[90vh] absolute bottom-[20vh] md:bottom-0 md:right-[20vw] z-[-1]"
                      : "h-[85vh] md:h-[94vh] absolute bottom-0 md:right-[57vw] z-[-1]"
                }
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1, delay: 1 }}
             />
          )}
 
          {chara2Visible && (
-            <img
+            <motion.img
                src={chara2Image}
                alt="chara"
-               className="h-[85vh] md:h-[94vh] absolute bottom-0 md:right-[57vw] z-[-1]"
+               className="h-[85vh] md:h-[94vh] absolute bottom-[1vw] md:right-[57vw] z-[-1]"
+               key={count}
+               animate={{ transform: "translateY(1vw)" }}
+               transition={{ duration: 0.2 }}
             />
          )}
 
-         <div className="h-dvh w-screen items-center justify-start gap-8 flex flex-col-reverse">
+         <motion.div
+            className="h-dvh w-screen items-center justify-start gap-8 flex flex-col-reverse"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 3 }}
+         >
             <TextBox
                texts={showTutorialVideo ? texts2 : texts1}
                count={count}
@@ -174,7 +190,7 @@ const NoOne = () => {
                   </div>
                </div>
             )}
-         </div>
+         </motion.div>
       </>
    );
 };

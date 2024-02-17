@@ -17,7 +17,9 @@ const BadEnding = () => {
       "That's fine,",
       "But remember, there's no escaping from love's grasp",
       "I've made up my mind",
-      `${apiData.city} (${apiData.latitude}, ${apiData.longitude}) huh? I know where you live💕`,
+      `${apiData.city == null ? apiData.country : apiData.city} (${
+         apiData.latitude
+      }, ${apiData.longitude}) huh? I know where you live💕`,
       `I'm on my way to your house this very moment 🤗❤️🔪`,
       "By the way, this is your IP address if you're curious",
    ];
