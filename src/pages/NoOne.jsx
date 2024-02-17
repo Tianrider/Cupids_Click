@@ -134,10 +134,13 @@ const NoOne = () => {
          )}
 
          {chara2Visible && (
-            <img
+            <motion.img
                src={chara2Image}
                alt="chara"
-               className="h-[85vh] md:h-[94vh] absolute bottom-0 md:right-[57vw] z-[-1]"
+               className="h-[85vh] md:h-[94vh] absolute bottom-[1vw] md:right-[57vw] z-[-1]"
+               key={count}
+               animate={{ transform: "translateY(1vw)" }}
+               transition={{ duration: 0.2 }}
             />
          )}
 
