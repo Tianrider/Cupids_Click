@@ -65,6 +65,7 @@ function MainPage() {
 
    return (
       <>
+
          <IntroPage handleAnimationComplete={handleAnimationComplete}/>
          <audio ref={audioRef} src={soundTrack} loop />
 
@@ -81,6 +82,7 @@ function MainPage() {
                <MdMusicOff size={40} />
             )}
          </div>
+
          <div 
             style={{
                opacity: opacity,

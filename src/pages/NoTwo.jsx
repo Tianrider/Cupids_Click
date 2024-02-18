@@ -36,8 +36,8 @@ function NoTwo() {
    };
 
    const handleDecrement = () => {
-      if (count <= 0) {
-         return;
+      if (count <= texts.length - 1) {
+         setChoices(false);
       }
       if (count > 0) {
          setCount(count - 1);
