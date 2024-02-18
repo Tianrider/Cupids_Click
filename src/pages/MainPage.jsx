@@ -1,27 +1,19 @@
 import { useRef, useEffect, useState } from "react";
 import liveBackground from "../assets/main-page-background.mp4";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import soundTrack from "../assets/mainPage-soundtrack.mp3";
 import { MdMusicOff, MdMusicNote } from "react-icons/md";
 
-function IntroPage() {
-   const [zIndex, setZIndex] = useState(10);
-
-   const handleAnimationComplete = () => {
-      setZIndex(0);
-   };
-
+function IntroPage(props) {
    return (
       <motion.div
-         className="fixed top-0 left-0 h-screen w-screen bg-pink-300 flex flex-col gap-10 md:gap-5 items-center justify-center"
+         className="fixed top-0 left-0 h-screen w-screen bg-gradient-to-tr from-pink-300 to-pink-400 flex flex-col gap-10 md:gap-5 items-center justify-center z-0"
          initial={{ opacity: 1, scale: 1 }}
-         animate={{ opacity: 0 }}
-         exit={{ opacity: 0 }}
          transition={{ duration: 5, delay: 5 }}
-         style={{ zIndex: zIndex }}
-         onAnimationComplete={handleAnimationComplete}
+         onAnimationComplete={props.handleAnimationComplete()}
       >
+
          <TypeAnimation
             sequence={["", 400, "Hi Sayang,"]}
             wrapper="span"
@@ -46,6 +38,7 @@ function MainPage() {
    const videoRef = useRef(null);
    const audioRef = useRef(null);
    const [audioPlaying, setAudioPlaying] = useState(false);
+   const [opacity, setOpacity] = useState(0);
 
    const handlePlayAudio = () => {
       if (audioPlaying) {
@@ -62,9 +55,18 @@ function MainPage() {
       }
    }, []);
 
+   const handleAnimationComplete = () => {
+      useEffect(() => {
+         const timeout = setTimeout(() => {
+            setOpacity(1);
+         }, 5000);
+      }, []);
+   };
+
    return (
       <>
-         <IntroPage />
+
+         <IntroPage handleAnimationComplete={handleAnimationComplete}/>
          <audio ref={audioRef} src={soundTrack} loop />
 
          <div
@@ -80,7 +82,13 @@ function MainPage() {
                <MdMusicOff size={40} />
             )}
          </div>
-         <>
+
+         <div 
+            style={{
+               opacity: opacity,
+               transition: "opacity 2s",
+            }}
+         >
             <video
                autoPlay
                loop
@@ -90,7 +98,9 @@ function MainPage() {
             >
                <source src={liveBackground} type="video/mp4" />
             </video>
-            <div className="gradient-background relative flex h-screen w-dvw max-md:text-center md:w-1/2 justify-center align-center items-center flex-col">
+            <div 
+               className="gradient-background relative flex h-screen w-dvw max-md:text-center md:w-1/2 justify-center align-center items-center flex-col"
+            >
                <p className="text-white p-20 max-md:py-8 max-md:text-lg text-xl font-bold font-serif libre-baskerville-bold">
                   Star shining bright in the night,
                   <br />
@@ -122,7 +132,7 @@ function MainPage() {
                   Click Me
                </a>
             </div>
-         </>
+         </div>
       </>
    );
 }
