@@ -1,18 +1,28 @@
+import { TypeAnimation } from "react-type-animation";
+
 const TextBox = (props) => {
    return (
       <div
          className="
-          flex flex-col w-[90%] h-44 py-4 px-5 mb-8 md:w-4/5 md:h-32 md:px-8
-          rounded-xl bg-gradient-to-tr from-pink-400/100 to-pink-300/90
-          outline-pink-600/80 outline-offset-4 outline outline-4
-          text-white
+          flex flex-col w-[90%] h-[40dvw] py-4 px-5 mb-8 md:w-4/5 md:h-[22dvh] md:px-8
+          border-[2px] border-pink-900
+          rounded-xl bg-pink-200 bg-opacity-[95%]
           shadow-2xl
         "
       >
-         <h1 className="text-xl font-bold quicksand">Christoff Vinago</h1>
-         <hr className="-mx-4 mt-2 mb-1" />
-         <p className="font-bold text-xl quicksand">
-            {props.texts[props.count]}
+         <div className="bg-pink-900 rounded-md flex align-center justify-center absolute bottom-[41dvw] md:bottom-[23dvh] z-1">
+            <h1 className="text-2xl quicksand-bold text-center px-9 py-[10px] text-white">
+               Christoff Vinago
+            </h1>
+         </div>
+         <p className="text-xl md:text-2xl quicksand text-pink-900 my-4">
+            <TypeAnimation
+               key={props.count}
+               sequence={["", 100, props.texts[props.count]]}
+               wrapper="span"
+               speed={90}
+               cursor={false}
+            />
          </p>
       </div>
    );

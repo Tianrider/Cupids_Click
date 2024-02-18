@@ -53,6 +53,9 @@ const NoOne = () => {
    };
 
    const handleDecrement = () => {
+      if (count <= texts1.length - 1) {
+         setChoices(false);
+      }
       if (count <= 0) {
          return;
       }
@@ -87,28 +90,24 @@ const NoOne = () => {
                   />
                )}
                {count === 5 && (
-                  <div className="mx-auto max-w-lg p-4">
-                     <div className="py-2 px-4 mb-2 rounded-xl bg-gradient-to-bl from-pink-300/80 to-pink-400/80 outline-pink-600/80 outline-offset-4 outline outline-4 text-white">
-                        <div>
-                           <h1 className="text-lg font-bold">Jawabanmu?</h1>
-                           <hr className="-mx-4 mt-2 mb-2" />
-                           <div className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer">
-                              <a
-                                 href="/good-ending"
-                                 className="block w-full h-full text-center" // Set the anchor tag to be block-level and cover the entire parent div
-                              >
-                                 Yes
-                              </a>
-                           </div>
-                           <div className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer">
-                              <a
-                                 href="/no-two"
-                                 className="block w-full h-full text-center" // Set the anchor tag to be block-level and cover the entire parent div
-                              >
-                                 Tetep Enggak!!
-                              </a>
-                           </div>
-                        </div>
+                  <div className="mx-10 my-[10dvh] md:my-[20dvh]">
+                     <div
+                        className=" text-pink-900 quicksand-bold  active:bg-pink-700/50 shadow py-1 px-4 mt-1 md:py-4 cursor-pointer text-center
+                        border-[2px] border-pink-900
+                        rounded-xl bg-pink-200 bg-opacity-[95%]
+                        hover:bg-pink-900 hover:text-white hover:scale-105 transition-all duration-200"
+                        onClick={() => (window.location.href = "/good-ending")}
+                     >
+                        Yes
+                     </div>
+                     <div
+                        className=" text-pink-900 quicksand-bold shadow py-1 px-4 mt-1 md:py-4 cursor-pointer text-center
+                           border-[2px] border-pink-900
+                           rounded-xl bg-pink-200 bg-opacity-[95%]
+                           hover:bg-pink-900 hover:text-white hover:scale-105 transition-all duration-200"
+                        onClick={() => (window.location.href = "/no-two")}
+                     >
+                        Tetep Enggak!!
                      </div>
                   </div>
                )}
@@ -165,28 +164,32 @@ const NoOne = () => {
                style={{ zIndex: 10 }}
             />
             {!showTutorialVideo && choices && (
-               <div className="flex justify-end m-10">
-                  <div className="flex flex-col items-end py-2 px-4 mb-2 rounded-xl bg-gradient-to-bl from-pink-300/100 to-pink-400/80 outline-pink-600/80 outline-offset-4 outline outline-4 text-white">
-                     <div>
-                        <h1 className="text-lg font-bold">Jawabanmu?</h1>
-                        <hr className="-mx-4 mt-2 mb-2" />
-                        <div className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer">
-                           <a
-                              href="/good-ending"
-                              className="block w-full h-full text-center" // Set the anchor tag to be block-level and cover the entire parent div
-                           >
-                              Yes
-                           </a>
-                        </div>
-                        <div className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer">
-                           <a
-                              onClick={handleTutorialVideo} // Change handleBlueScreen to handleTutorialVideo
-                              className="block w-full h-full text-center" // Set the anchor tag to be block-level and cover the entire parent div
-                           >
-                              No
-                           </a>
-                        </div>
-                     </div>
+               <div className="mx-10 my-[10dvh] md:my-[20dvh]">
+                  <div
+                     className=" text-pink-900 quicksand-bold  active:bg-pink-700/50 shadow py-1 px-16 mt-1 md:py-4 cursor-pointer text-center
+                     border-[2px] border-pink-900
+                     rounded-xl bg-pink-200 bg-opacity-[95%]
+                     hover:bg-pink-900 hover:text-white hover:scale-105 transition-all duration-200"
+                  >
+                     <a
+                        href="/good-ending"
+                        className="block w-full h-full text-center" // Set the anchor tag to be block-level and cover the entire parent div
+                     >
+                        Yes
+                     </a>
+                  </div>
+                  <div
+                     className=" text-pink-900 quicksand-bold shadow py-1 px-4 mt-1 md:py-4 cursor-pointer text-center
+                           border-[2px] border-pink-900
+                           rounded-xl bg-pink-200 bg-opacity-[95%]
+                           hover:bg-pink-900 hover:text-white hover:scale-105 transition-all duration-200"
+                  >
+                     <a
+                        onClick={handleTutorialVideo} // Change handleBlueScreen to handleTutorialVideo
+                        className="block w-full h-full text-center" // Set the anchor tag to be block-level and cover the entire parent div
+                     >
+                        No
+                     </a>
                   </div>
                </div>
             )}

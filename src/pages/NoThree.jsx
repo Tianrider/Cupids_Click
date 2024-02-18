@@ -20,13 +20,13 @@ const NoThree = () => {
       "Let’s try a riddle this time.",
       "What did the iPhone say to the Macbook?",
       "You are the apple of my eye!",
-      "Awikwok gw cowo humoris banget si 👉👈",
+      "(Awikwok gw cowo humoris banget si 👉👈)",
       "SEKARANG",
       "WILL YOU BE MY VALENTINE!?",
    ];
 
    const handleIncrement = () => {
-      if (count >= texts.length - 1) {
+      if (count == texts.length - 2) {
          setChoices(true);
       }
       if (!choices && count < texts.length - 1) {
@@ -35,8 +35,8 @@ const NoThree = () => {
    };
 
    const handleDecrement = () => {
-      if (count <= 0) {
-         return;
+      if (count <= texts.length - 1) {
+         setChoices(false);
       }
       if (count > 0) {
          setCount(count - 1);
@@ -92,34 +92,25 @@ const NoThree = () => {
                handleDecrement={handleDecrement}
             />
             {choices && (
-               <div className="flex justify-end m-10">
+               <div className="mx-10 my-[10dvh] md:my-[20dvh]">
                   <div
-                     className="
-                                            flex flex-col items-end py-2 px-4 mb-2
-                                            rounded-xl bg-gradient-to-bl from-pink-300/100 to-pink-400/90
-                                            outline-pink-600/80 outline-offset-4 outline outline-4 shadow-2xl
-                                            text-white
-                                          "
+                     className=" text-pink-900 quicksand-bold  active:bg-pink-700/50 shadow py-1 px-4 mt-1 md:py-4 cursor-pointer text-center
+                           border-[2px] border-pink-900
+                           rounded-xl bg-pink-200 bg-opacity-[95%]
+                           hover:bg-pink-900 hover:text-white hover:scale-105 transition-all duration-200"
                   >
-                     <div>
-                        <h1 className="text-lg font-bold text-center">
-                           Jawabanmu?
-                        </h1>
-                        <hr className="-mx-4 mt-2 mb-2" />
-                        <div className="bg-pink-500 hover:bg-pink-600/50 active:bg-pink-700/50 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer font-bold">
-                           <a href="/good-ending">
-                              {
-                                 "ihh kamu humoris banget, iya iyaa aku sukaa >_<"
-                              }
-                           </a>
-                        </div>
-                        <div
-                           className="bg-pink-500 hover:bg-pink-600/50 active:bg-pink-700/50 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer font-bold text-center"
-                           onClick={handleBlueScreen}
-                        >
-                           apasi blok
-                        </div>
-                     </div>
+                     <a href="/good-ending">
+                        {"ihh kamu humoris banget, iya iyaa aku sukaa >_<"}
+                     </a>
+                  </div>
+                  <div
+                     className=" text-pink-900 quicksand-bold  active:bg-pink-700/50 shadow py-1 px-4 mt-1 md:py-4 cursor-pointer text-center
+                           border-[2px] border-pink-900
+                           rounded-xl bg-pink-200 bg-opacity-[95%]
+                           hover:bg-pink-900 hover:text-white hover:scale-105 transition-all duration-200"
+                     onClick={handleBlueScreen}
+                  >
+                     apasi blok
                   </div>
                </div>
             )}

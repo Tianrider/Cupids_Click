@@ -26,7 +26,7 @@ function NoTwo() {
       "Engga Dulu",
       "GAK 😡!!",
       "Download Virus.exe",
-      "Gamau😭😭",
+      "Pliss😭😭",
    ];
 
    const yesTexts = [
@@ -47,8 +47,8 @@ function NoTwo() {
    };
 
    const handleDecrement = () => {
-      if (count <= 0 || count >= texts.length - 2) {
-         return;
+      if (count <= texts.length - 1) {
+         setChoices(false);
       }
       if (count > 0) {
          setCount(count - 1);
@@ -91,36 +91,29 @@ function NoTwo() {
             />
 
             {choices && (
-               <div className="flex justify-end">
+               <div className="mx-10 my-[10dvh] md:my-[20dvh]">
                   <div
-                     className="
-         flex flex-col items-end py-2 px-4 mb-2
-         rounded-xl bg-gradient-to-bl from-pink-300/80 to-pink-400/80
-         outline-pink-600/80 outline-offset-4 outline outline-4
-         text-white
-       "
+                     className=" text-pink-900 quicksand-bold shadow py-1 px-4 mt-1 md:py-4 cursor-pointer text-center
+                        border-[2px] border-pink-900
+                        rounded-xl bg-pink-200 bg-opacity-[95%]
+                        hover:bg-pink-900 hover:text-white hover:scale-105 transition-all duration-200"
+                     style={{
+                        scale: `${noClicked + 1}`,
+                     }}
                   >
-                     <div>
-                        <h1 className="text-lg font-bold">Jawabanmu?</h1>
-                        <hr className="-mx-4 mt-2 mb-2" />
-                        <div
-                           className="bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 mt-1 cursor-pointer text-center font-bold"
-                           style={{
-                              scale: `${noClicked + 1}`,
-                           }}
-                        >
-                           <a href="/good-ending">{yesTexts[noClicked]}</a>
-                        </div>
-                        <div
-                           className={`mt-1 bg-pink-500 hover:bg-pink-600 active:bg-pink-700 rounded-xl shadow py-1 px-3 cursor-pointer text-center`}
-                           onClick={handleNoClicked}
-                           style={{
-                              transform: `translateY(${noClicked * 40}px)`,
-                           }}
-                        >
-                           <a>{noTexts[noClicked]}</a>
-                        </div>
-                     </div>
+                     <a href="/good-ending">{yesTexts[noClicked]}</a>
+                  </div>
+                  <div
+                     className=" text-pink-900 quicksand-bold shadow py-1 px-4 mt-1 md:py-4 cursor-pointer text-center
+                           border-[2px] border-pink-900
+                           rounded-xl bg-pink-200 bg-opacity-[95%]
+                           hover:bg-pink-900 hover:text-white hover:scale-105 transition-all duration-200"
+                     onClick={handleNoClicked}
+                     style={{
+                        transform: `translateY(${noClicked * 10}dvh)`,
+                     }}
+                  >
+                     <a>{noTexts[noClicked]}</a>
                   </div>
                </div>
             )}
