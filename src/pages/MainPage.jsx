@@ -65,7 +65,7 @@ function MainPage() {
 
    return (
       <>
-         <IntroPage handleAnimationComplete={handleAnimationComplete} />
+         <IntroPage handleAnimationComplete={handleAnimationComplete}/>
          <audio ref={audioRef} src={soundTrack} loop />
 
          <div
@@ -82,7 +82,7 @@ function MainPage() {
             )}
          </div>
 
-         <div
+         <div 
             style={{
                opacity: opacity,
                transition: "opacity 2s",
