@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import soundTrack from "../assets/mainPage-soundtrack.mp3";
 import { MdMusicOff, MdMusicNote } from "react-icons/md";
+import logo from "../assets/icon.png";
 
 function IntroPage() {
    const [zIndex, setZIndex] = useState(10);
@@ -91,7 +92,11 @@ function MainPage() {
                <source src={liveBackground} type="video/mp4" />
             </video>
             <div className="gradient-background relative flex h-screen w-dvw max-md:text-center md:w-1/2 justify-center align-center items-center flex-col">
-               <p className="text-white p-20 max-md:py-8 max-md:text-lg text-xl font-bold font-serif libre-baskerville-bold">
+               <img
+                  src={logo}
+                  className="w-28 h-28 md:w-40 md:h-40 hidden md:block"
+               ></img>
+               <p className="text-white p-10 max-md:py-8 max-md:text-lg text-xl font-bold font-serif libre-baskerville-bold">
                   Star shining bright in the night,
                   <br />
                   I'm rewriting my story, holding onto hope tight,
