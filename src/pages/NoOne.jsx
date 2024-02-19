@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TextBox from "../components/TextBox";
 import DialogBox from "../components/DialogBox";
 import background from "../assets/background-no-one.png";
@@ -15,6 +15,7 @@ const NoOne = () => {
    const [showTutorialVideo, setShowTutorialVideo] = useState(false);
    const [chara2Visible, setChara2Visible] = useState(false);
    const [chara1Visible, setChara1Visible] = useState(true);
+   const [chara1BVisible, setChara1BVisible] = useState(false);
    const [isLoading, setIsLoading] = useState(true);
 
    const texts1 = [
@@ -36,8 +37,19 @@ const NoOne = () => {
       "Lets try again shall we?",
    ];
 
+   useEffect(() => {
+      if (count >= 2) {
+         setChara1Visible(false);
+         setChara1BVisible(true);
+      }
+   }, [count]);
+
    const handleIncrement = () => {
       if (showTutorialVideo) {
+         if (count >= 2) {
+            setChara1BVisible(true);
+            setChara1Visible(false);
+         }
          if (count >= texts2.length - 1) {
             setShowTutorialVideo(true);
          } else {
@@ -53,9 +65,6 @@ const NoOne = () => {
    };
 
    const handleDecrement = () => {
-      if (count <= texts1.length - 1) {
-         setChoices(false);
-      }
       if (count <= 0) {
          return;
       }
@@ -121,15 +130,21 @@ const NoOne = () => {
             className="h-dvh object-cover md:w-screen z-[-2] absolute top-0 left-0"
             onLoad={() => setIsLoading(false)}
          />
-         {chara1Visible && (
+         {chara1BVisible && !chara2Visible && (
             <motion.img
-               src={count >= 2 ? chara1ImageB : chara1Image}
+               src={chara1ImageB}
                alt="chara"
-               className={
-                  count >= 2 && !chara2Visible
-                     ? "h-[50vh] md:h-[90vh] absolute bottom-[20vh] md:bottom-0 md:right-[20vw] z-[-1]"
-                     : "h-[85vh] md:h-[94vh] absolute bottom-0 md:right-[57vw] z-[-1]"
-               }
+               className="h-[50vh] md:h-[90vh] absolute bottom-[20vh] md:bottom-0 md:right-[20vw] z-[-1]"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1 }}
+            />
+         )}
+         {chara1Visible && !chara2Visible && (
+            <motion.img
+               src={chara1Image}
+               alt="chara"
+               className="h-[85vh] md:h-[94vh] absolute bottom-0 md:right-[57vw] z-[-1]"
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ duration: 1, delay: 1 }}
