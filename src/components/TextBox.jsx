@@ -15,7 +15,7 @@ const TextBox = (props) => {
                Christoff Vinago
             </h1>
          </div>
-         <p className="text-xl md:text-2xl quicksand text-pink-900 my-4">
+         <p className="text-[4dvw] md:text-2xl quicksand text-pink-900 my-4">
             <TypeAnimation
                key={props.count}
                sequence={["", 100, props.texts[props.count]]}
